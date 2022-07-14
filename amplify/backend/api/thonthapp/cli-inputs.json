@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "thonthapp",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "C:\\Users\\giome\\OneDrive\\Documentos\\Code\\Kleo Labs\\thonth-app\\amplify\\backend\\api\\thonthapp\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 365,
+      "apiKeyExpirationDate": "2023-07-14T05:34:53.461Z",
+      "keyDescription": "demo"
+    }
+  }
+}

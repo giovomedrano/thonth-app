@@ -23,7 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # personalized
-App.js
+/old_apps
+instructions.sh
 
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
