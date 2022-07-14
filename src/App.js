@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '@aws-amplify/ui-react/styles.css';
 import './App.css';
 import { Amplify, API, Storage } from 'aws-amplify';
-import { Button} from '@aws-amplify/ui-react';
+import { Button, withAuthenticator} from '@aws-amplify/ui-react';
 import { listTodos as listNotes } from './graphql/queries';
 import {
   createTodo as createNoteMutation,
@@ -90,5 +90,5 @@ function App({ signOut }) {
   );
 }
 
-// export default withAuthenticator(App);
-export default App;
+export default withAuthenticator(App);
+// export default App;
