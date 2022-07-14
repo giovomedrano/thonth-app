@@ -23,6 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # personalized
+/logs
 /old_apps
 instructions.sh
 

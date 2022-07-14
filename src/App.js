@@ -1,17 +1,13 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState } from 'react';
 import '@aws-amplify/ui-react/styles.css';
 import './App.css';
-
 import { Amplify, API, Storage } from 'aws-amplify';
-
-import { 
-  withAuthenticator,
-  Button,
-} from '@aws-amplify/ui-react';
-
+import { Button} from '@aws-amplify/ui-react';
 import { listTodos as listNotes } from './graphql/queries';
-import { createTodo as createNoteMutation, deleteTodo as deleteNoteMutation } from './graphql/mutations';
+import {
+  createTodo as createNoteMutation,
+  deleteTodo as deleteNoteMutation
+} from './graphql/mutations';
 
 import awsExports from './aws-exports';
 
@@ -22,10 +18,6 @@ const initialFormState = { name: '', description: '' }
 function App({ signOut }) {
   const [notes, setNotes] = useState([]);
   const [formData, setFormData] = useState(initialFormState);
-
-  useEffect(() => {
-    fetchNotes();
-  }, []);
 
   async function fetchNotes() {
     const apiData = await API.graphql({ query: listNotes });
@@ -42,7 +34,7 @@ function App({ signOut }) {
 
   async function createNote() {
     if (!formData.name || !formData.description) return;
-    await API.graphql({ query: createNoteMutation, variables: { input: formData } });
+    await API.graphql({ query: createNoteMutation, variables: { input: formData } })
     setNotes([ ...notes, formData ]);
     setFormData(initialFormState);
   }
@@ -94,9 +86,9 @@ function App({ signOut }) {
         }
       </div>
       <Button onClick={signOut}>Sign Out</Button>
-      {/* <AmplifySignOut /> */}
     </div>
   );
 }
 
-export default withAuthenticator(App);
+// export default withAuthenticator(App);
+export default App;
