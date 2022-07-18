@@ -24,7 +24,7 @@ yarn-error.log*
 
 # personalized
 /logs
-/old_apps
+/old_scripts
 instructions.sh
 
 #amplify-do-not-edit-begin
