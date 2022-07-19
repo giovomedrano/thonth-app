@@ -5,9 +5,8 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-        <p>Made with <span role="img" aria-label="dog">❤️</span> from Kleo Labs</p>
-        <p>Copyright &copy; 2022</p>    
-        <Link to="/about">About</Link>
+        <p>Made with <span role="img" aria-label="dog">❤️</span> from <a href="https://twitter.com/KleoLabsXYZ">Kleo Labs</a></p>
+        <Link to="/about">About THONTH</Link>
     </footer>
   )
 }

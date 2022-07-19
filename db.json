@@ -19,8 +19,8 @@
           "width": 200
        },
        {
-          "label": "Age",
-          "field": "age",
+          "label": "Potential",
+          "field": "potential",
           "sort": "asc",
           "width": 100
        },
