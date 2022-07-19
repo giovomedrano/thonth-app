@@ -57,11 +57,11 @@ code {
   font-family: inherit;
 }
 
-.btn:focus {
+.btn-kl:focus {
   outline: none;
 }
 
-.btn:active {
+.btn-kl:active {
   transform: scale(0.98);
 }
 

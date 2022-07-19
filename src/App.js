@@ -38,7 +38,7 @@ const App = () => {
   const getTokens = async () => {
     const tokensFromServer = await fetchTokens();
     setTokens(tokensFromServer);
-    console.log(tokens)
+    // console.log(tokens)
   };
 
   // Fetch Tokens

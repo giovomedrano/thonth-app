@@ -8,6 +8,7 @@ function Tokens( {columns, tokens}) {
   });
 
   return (<MDBDataTableV5
+            scrollX
             hover
             entriesOptions={[5, 10, 25]}
             entries={5}
