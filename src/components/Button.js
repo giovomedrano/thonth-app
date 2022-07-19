@@ -1,12 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Button = ({color, text, onClick}) => {
+const Button = ({bgcolor, txtcolor, text, onClick}) => {
     return (
         <button 
             onClick={onClick}
-            style={{backgroundColor: color}}
-            className='btn'
+            style={{
+                // backgroundColor: bgcolor,
+                // color: txtcolor,
+                // 'border-radius': '5px',
+                // display: 'inline-block'
+            }}
+            className='btn-kl'
         >
             {text}
         </button>
@@ -14,12 +19,14 @@ const Button = ({color, text, onClick}) => {
 }
 
 Button.defaultProps = {
-    color: 'steelblue',
+    bgcolor: 'steelblue',
+    txtcolor: 'white'
 }
 
 Button.propTypes = {
     text: PropTypes.string,
-    color: PropTypes.string,
+    bgcolor: PropTypes.string,
+    txtcolor: PropTypes.string,
     onClick: PropTypes.func,
 }
 

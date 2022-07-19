@@ -1,21 +1,16 @@
 import React from 'react'
-import { useLocation } from "react-router-dom";
 import Button from "./Button";
 
-const Updater = ( { onAdd, showAdd }) => {
-  const location = useLocation();
+const Updater = ( { onUpdate}) => {
 
   return (
-    <updater>
-        {/* <p>Copyright &copy; 2022</p> */}
-        {/* {location.pathname === '/' && (
-          <Button
-            color={showAdd ? "red" : "green"}
-            text={showAdd ? "Close" : "Add"}
-            onClick={onAdd}
-          />
-        )} */}
-    </updater>
+    <div className="updater">
+      <Button
+        color={"steelblue"}
+        text={"Update"}
+        onClick={onUpdate}
+      />
+    </div>
   )
 }
 

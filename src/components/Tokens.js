@@ -2,7 +2,7 @@ import React from 'react';
 import { MDBDataTableV5 } from 'mdbreact';
 
 function Tokens( {columns, tokens}) {
-  const [datatable, setDatatable] = React.useState({
+  const [datatable] = React.useState({
     columns: columns,
     rows: tokens,
   });
