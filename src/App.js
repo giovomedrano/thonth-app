@@ -8,7 +8,6 @@ import About from "./components/About"
 
 const App = () => {
   const SHEET_ID = '1Bo-0qaCJl26AscSirzOc3bZvPcaI2ILiTcx14PR5u4k'
-  const API_KEY = 'AIzaSyCLzXhqEUGyohuUPQfUy40pHX8wVnIJV1c'
   const ACCESS_TOKEN = 'ya29.A0AVA9y1vo3oEXo_w9VVlBUKKCG8GBkAXmbsZDYcZmQIOuqrioPmRKsv3YWccVJiWmkwVW4pC3tqJA6Tpajb8mXrMpxSX7CKMbrS-w_YQ1aT5i3qjqMtsuvW_CmhTpkeKALs9q8mSnELzgxhu4gj9bLsWnJSP_iAYUNnWUtBVEFTQVRBU0ZRRTY1ZHI4T1ItQlF2SXlycFQycWI2dzRySHc5Zw0165'
 
   const [updated, setUpdated] = useState(false)
