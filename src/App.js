@@ -8,16 +8,16 @@ import About from "./components/About"
 
 const App = () => {
   const SHEET_ID = '1Bo-0qaCJl26AscSirzOc3bZvPcaI2ILiTcx14PR5u4k'
-  const ACCESS_TOKEN = 'ya29.A0AVA9y1vo3oEXo_w9VVlBUKKCG8GBkAXmbsZDYcZmQIOuqrioPmRKsv3YWccVJiWmkwVW4pC3tqJA6Tpajb8mXrMpxSX7CKMbrS-w_YQ1aT5i3qjqMtsuvW_CmhTpkeKALs9q8mSnELzgxhu4gj9bLsWnJSP_iAYUNnWUtBVEFTQVRBU0ZRRTY1ZHI4T1ItQlF2SXlycFQycWI2dzRySHc5Zw0165'
+  const API_KEY = 'AIzaSyCLzXhqEUGyohuUPQfUy40pHX8wVnIJV1c'
+  const requestOptions = {method: 'GET', redirect: 'follow'}
 
   const [updated, setUpdated] = useState(false)
   const [tokens, setTokens] = useState([])
   const [columns, setColumns] = useState([])
-  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    // getGSV()
-    getDB()
+    // getDB()
+    getGSV()
   }, []);
 
   // Get DataBase from json file
@@ -36,7 +36,7 @@ const App = () => {
     const tokens = []
     // Columns from Google Sheet
     for(let i in headers){
-      let column = {"label": `${headers[i]}`,"field": `${headers[i]}`,"sort": "asc","width": 100}
+      let column = {"label": `${headers[i]}`,"field": `${headers[i]}`,"sort": "","width": 100}
       columns.push(column)
     }
     dataGoogleSheet["columns"] = columns
@@ -60,7 +60,25 @@ const App = () => {
 
   // Set Data
   const setData = async (rawJSONData) => {
-    const columns = rawJSONData.columns
+    const columns = []
+    for(let i in rawJSONData.columns){
+      let column = rawJSONData.columns[i]
+      column.label = column.label.replaceAll("_", " ")
+      switch(column.field){
+        case "id":
+        case "avg_ranking":
+          column.width = 5
+          break
+        case "first_mkt_cap (Musd)":
+          column.width = 120
+          break
+        case "current_date":
+        case "first_max_date":
+          column.width = 160
+          break
+      }
+      columns.push(column)
+    }
     const tokens = []
     for(let i in rawJSONData.tokens){
       let token = {}
@@ -92,23 +110,9 @@ const App = () => {
 
   // Fetch Google Sheet
   const fetchGoogleSheet = async () =>{
-    const res = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/current!A1:U27`,
-    {
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${ACCESS_TOKEN}`,
-        // "Authorization": `API_KEY ${API_KEY}`,    
-    }
-    })
-    .then(res => {
-      if (!res.ok) {
-        throw new Error(res.statusText)
-      }
-      return res.json().values
-    }).catch(err => {
-      console.log(`Uh-oh!`, err)
-
-    })
+    const res = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/current!A1:U27?key=${API_KEY}`, requestOptions)  
+    const data = await res.json()
+    return data.values
   }
 
   // Fetch DB
@@ -146,7 +150,6 @@ const App = () => {
                 )}
                 <Updater
                     onUpdate={() => {
-                      // useEffect()
                       setUpdated(!updated)
                       }
                     }
