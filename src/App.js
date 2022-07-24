@@ -76,6 +76,8 @@ const App = () => {
         case "first_max_date":
           column.width = 160
           break
+        default:
+          break
       }
       columns.push(column)
     }

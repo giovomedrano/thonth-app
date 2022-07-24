@@ -19,6 +19,9 @@ const Tokens = ({columns, tokens}) => {
       searchTop
       fullPagination
       searchBottom={false}
+      exportToCSV
+      autoWidth
+      order={['id', 'asc' ]}
     />
   )
 }
